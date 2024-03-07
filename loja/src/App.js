@@ -1,6 +1,6 @@
 import React from "react";
 import {View} from "react-native";
-
+import  Text  from "./components/terceiro";
 import Parte, { Parte1,Parte2 } from "./components/Primeiro";
 
 function App(){
@@ -9,6 +9,7 @@ function App(){
         <Parte/>
         <Parte1/>
         <Parte2/>  
+        <Text/>
     </View>
     )
 }
