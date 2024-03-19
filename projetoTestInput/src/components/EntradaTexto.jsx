@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { TextInput} from "react-native-paper";
+import { TextInput} from "react-native";
 import { View, Image, StyleSheet } from "react-native";
 
 
@@ -10,8 +10,14 @@ export default props =>{
 
     return(
         <View>
-            <Image
+            <Image 
               source={require('../icons/foguete.png')}
+              style={
+                {
+                   width: 50,
+                   height: 50,
+                }
+                }
             />
              <TextInput style={style.Input}
                 Iabel = "Email"
@@ -34,12 +40,12 @@ export default props =>{
  const style = StyleSheet.create(
     {
         Input:{
-             marginTop:10,
              backgroundColor:'gray',
-             
-             
+             height:40,
+             margin:12,
+             borderWidth:1,
+             padding:10,
              borderRadius:10,
-              
         }
     }
  )
