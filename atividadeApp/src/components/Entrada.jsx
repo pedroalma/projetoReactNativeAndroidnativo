@@ -74,7 +74,6 @@ const tilo = StyleSheet.create(
             alignItems:"center",
         },
         in:{
-            marginTop:20,
             fontSize:20,
             backgroundColor:"#83919a",
             marginTop:5,
