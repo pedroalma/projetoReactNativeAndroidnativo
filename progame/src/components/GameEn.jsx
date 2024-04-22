@@ -1,5 +1,6 @@
 import React from "react";
-import { View , Text , Button , StyleSheet , Image} from "react-native";
+import { View , Text  , StyleSheet , Image , TouchableOpacity} from "react-native";
+import Icon from 'react-native-vector-icons/Ionicons';
 
 export default props => {
     return(
@@ -7,6 +8,7 @@ export default props => {
         style={{
          flex:1,
          alignItems:'center',
+         backgroundColor:'#ffffff'
         }}
      >
          <Text style={style.test}>GAMEON</Text>
@@ -14,15 +16,17 @@ export default props => {
          source={require('../img/game.jpg')}
          style={
             {
-                width:200,
+                width:270,
                 height:200,
             }
          }
          />
-         <Button 
-             title="Let's Begin"
-             onPress={ () => props.navigation.navigate('Home ')}
-         />
+        <TouchableOpacity onPress={() => props.navigation.navigate('GameTen')}>
+            <View style={style.tesi}>
+            <Text style={style.text}>Let's Begin</Text>
+            <Icon name='chevron-forward' size={24}  style={style.Icon} />   
+            </View>                         
+        </TouchableOpacity> 
      </View>
     )
 }
@@ -31,6 +35,23 @@ const style = StyleSheet.create(
     {
         test:{
             fontSize: 40,
+            color:'#434A62'
+        },
+        tesi:{
+            flexDirection:'row',
+            alignItems:'center',
+            backgroundColor:'#852D84',
+            borderRadius:50,
+            paddingLeft:75,
+            paddingRight:75,
+            alignItems:'center',
+        },
+        text:{
+            color:'#FDFEFD',
+        },
+        Icon:{
+            textAlign:"right",
+            color:'#322C2B',
         }
     }
 )
