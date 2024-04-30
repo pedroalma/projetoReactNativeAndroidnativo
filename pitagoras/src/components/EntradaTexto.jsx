@@ -3,17 +3,16 @@ import { SafeAreaView, StyleSheet, Text, TextInput } from "react-native";
 
 export default props =>{
 
-    const [text,onChangeText] = useState('Insira um texto')
+    const [text,onChangeText] = useState('')
     const [number,onChangeNumber] = useState('')
 
     return(
         <SafeAreaView>
-            <Text>Entrada de texto</Text>
             <TextInput
                  style={style.input}   
                  onChangeText={onChangeText}
                  value={text}
-                 
+                 placeholder="Entrada de texto"
                  maxLength={50}
             />
             <TextInput 

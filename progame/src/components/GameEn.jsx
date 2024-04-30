@@ -38,16 +38,17 @@ const style = StyleSheet.create(
             color:'#434A62'
         },
         tesi:{
-            flexDirection:'row',
-            alignItems:'center',
+            flexDirection:'row',           
             backgroundColor:'#852D84',
             borderRadius:50,
             paddingLeft:75,
             paddingRight:75,
-            alignItems:'center',
+            marginTop:50,
         },
         text:{
+            height:32,
             color:'#FDFEFD',
+            
         },
         Icon:{
             textAlign:"right",
