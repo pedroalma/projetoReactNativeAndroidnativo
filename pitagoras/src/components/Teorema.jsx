@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, StyleSheet , View ,Text } from "react-native";
-
+import Com from "../components/Com"
 
 export default props => {
     const [num] = useState(props.numero)
@@ -12,6 +12,7 @@ export default props => {
     }
     return (
         <View>
+            <Com/>
             <Text style={style.txtG}>Teorema De Pitagoras</Text>
             <Text style={style.txtH}>primeiro Cateto</Text>
             <Text style={style.txtG}>{num}</Text>

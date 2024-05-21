@@ -1,7 +1,7 @@
 import React from "react";
-import { View, Text, FlatList, Alert } from 'react-native';
-import user from "../data/user";
-import { ListItem, Avatar, ThemeProvider } from "@rneui/base";
+import { View, FlatList, Alert } from 'react-native';
+import users from "../data/users";
+import { ListItem, Avatar, ThemeProvider } from "@rneui/themed";
  
 export default props => {
     function confirmUserDeletion(user){
@@ -22,10 +22,16 @@ export default props => {
     function getUserItem({item: user}){
         return(
            <ThemeProvider>
+            <ListItem 
+            bottomDivider
+            onPress={() =>{
+              props.navigation.navigate('UserForm')
+            }}
+            >
         <Avatar source={{uri: user.avatarURL}}/>
         <ListItem.Content>
             <ListItem.Title>{user.name}</ListItem.Title>
-            <ListItem.Title>{user.name}</ListItem.Title>
+            <ListItem.Title>{user.email}</ListItem.Title>
         </ListItem.Content>
  
           <ListItem.Chevron
@@ -42,7 +48,7 @@ export default props => {
            size={25}
            onPress={() => confirmUserDeletion(user)}
           />
- 
+          </ListItem>
         </ThemeProvider>
        
         )
