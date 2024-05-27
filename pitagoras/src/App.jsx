@@ -3,7 +3,7 @@ import { StyleSheet, View } from "react-native";
 import EntradaTexto from "./components/EntradaTexto";
 
 import Teorema from "./components/Teorema"
-import App from "./components/Comp";
+import App from "./components/Conpe";
 
 
 // import estilo from "./components/estilo";
