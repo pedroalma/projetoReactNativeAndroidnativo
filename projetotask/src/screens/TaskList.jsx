@@ -3,24 +3,32 @@ import { View,Text,ImageBackground,StyleSheet, SafeAreaView } from "react-native
 import moment from 'moment'
 import 'moment/locale/pt-br' 
 import todayImage from '../../assets/imgs/today.jpg'
-import CommonStyle from "../commonStyle";
+import CommonStyles from "../commonStyle";
 import Task from "../components/Task";
 
 export default props =>{
 
-           const hoje = moment().locale('pt-br').format('ddd, D [de] MMMM')
+           const date = moment().locale('pt-br').format('ddd, D [de] MMMM')
 
     return(
         <SafeAreaView style={style.conteiner}>
             <ImageBackground source={todayImage} style={style.background}>
                 <View style={style.titlibar}>
                     <Text style={style.titli}>hoje</Text>
-                    <Text style={style.sudtitli}>{hoje}</Text>
+                    <Text style={style.sudtitli}>{date}</Text>
                 </View>
             </ImageBackground>
             <View style={style.taski} >
-                <Task/>
-                <Text>Task</Text>
+                <Task
+                   descricao="comprar livro"
+                   dataEstimada={new Date()}
+                   concluidaEm={new Date()}
+                />
+                <Task
+                   descricao='Ler livro'
+                   dataEstimada={new Date()}
+                   concluidaEm={null}
+                />
             </View>
         </SafeAreaView>
     )
@@ -40,17 +48,17 @@ const style = StyleSheet.create({
         justifyContent:'flex-end'
     },
     titli:{
-        fontFamily: CommonStyle.fontFamily,
+        fontFamily: CommonStyles.fontFamily,
         fontSize:50,
-        color: CommonStyle.colors.secundary,
+        color: CommonStyles.colors.secundary,
         marginLeft:20,
         marginBottom:20
     },
     sudtitli:{
-        fontFamily: CommonStyle.fontFamily.secundary,
+        fontFamily: CommonStyles.fontFamily.secundary,
         fontSize:20,
-        color: CommonStyle.colors.secundary,
+        color: CommonStyles.colors.secundary,
         marginLeft:20,
-        marginBottom:20
+        marginBottom:20,
     }
 })

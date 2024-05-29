@@ -1,7 +1,6 @@
 import React from "react";
 import { SafeAreaView, Text, ImageBackground, StyleSheet, View } from "react-native";
- 
-// import commonStyles from '../commonStyles';
+
 import todayImage from '../../assets/imgs/today.jpg'
 import moment from 'moment'
 import 'moment/locale/pt-br';
@@ -10,26 +9,29 @@ import Icon from 'react-native-vector-icons/FontAwesome';
  
 export default props => {
  
- 
- 
-    // const tarefaConcuidaNao = props.concluidaEm != null ?
+    const tarefaConcuidaNao = props.concluidaEm != null ?
+     { textDecorationLine: 'line-through' } : {}
+
+    const date = props.concluidoEm ? props.concluidaEm : props.dataEstimada
+
+    const dataFormat = moment(date).locale('pt-br').format('ddd, D [de] MMMM')
  
     return (
         <View style={style.container}>
-            <View>
-                <Text>Concluido</Text>
+
+            <View style={style.checkContainer}>
+                {getCheckView(props.concluidaEm)}
             </View>
- 
             <View>
-                <Text>Hoje</Text>
-                <Text>31/02</Text>
+                <Text style={[style.descricao,tarefaConcuidaNao]}>{props.descricao}</Text>
+                <Text style={style.date}>{dataFormat}</Text>
             </View>
         </View>
     )
 }
  
 function getCheckView(concluidaEm) {
-    if(concluidaEm != null) {
+    if (concluidaEm != null) {
         return (
             <View style={style.dataEstimada}>
                 <Icon name='check' size={20} color='#fff'/>
@@ -68,4 +70,18 @@ const style = StyleSheet.create({
         alignItems:'center',
         justifyContent:'center'
     },
+    descricao:{
+        fontSize:15,
+        color:commonStyles.colors.mainText,
+    },
+    data:{
+        fontFamily:commonStyles.fontFamily,
+        color:commonStyles.colors.subText,
+        fontSize:12,
+    },
+    checkContainer:{
+        width:'20%',
+        alignItems:'center',
+        justifyContent:'center',
+    }
 })
