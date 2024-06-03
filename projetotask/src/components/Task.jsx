@@ -1,5 +1,5 @@
 import React from "react";
-import { SafeAreaView, Text, ImageBackground, StyleSheet, View } from "react-native";
+import { StyleSheet, Text, TouchableWithoutFeedback, View } from "react-native";
 
 import todayImage from '../../assets/imgs/today.jpg'
 import moment from 'moment'
