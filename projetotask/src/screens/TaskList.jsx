@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { View, Text, ImageBackground, StyleSheet, SafeAreaView, FlatList, TouchableOpacity, Platform, Alert } from "react-native";
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-import commonStyles from "../commonStyles";
+import commonStyle from "../commonStyle";
 
 import todayImage from '../../assets/imgs/today.jpg'
 import moment from 'moment'
@@ -96,7 +96,7 @@ export default class TaskList extends Component {
                     <View style={style.iconBar}>
                         <TouchableOpacity onPress={this.toggleFilter}>
                             <Icon name={this.state.showDoneTasks ? 'eye' : 'eye-slash'}
-                                size={20} color={commonStyles.colors.secundary} />
+                                size={20} color={commonStyle.colors.secundary} />
                         </TouchableOpacity>
                     </View>
                     <View style={style.titleBar}>
@@ -116,7 +116,7 @@ export default class TaskList extends Component {
                     style={style.addButton}
                     activeOpacity={0.7}
                     onPress={() => this.setState({ showAddTask: true })}>
-                    <Icon name='plus' size={20} color={commonStyles.colors.secundary} />
+                    <Icon name='plus' size={20} color={commonStyle.colors.secundary} />
                 </TouchableOpacity>
 
             </SafeAreaView>
@@ -139,16 +139,16 @@ const style = StyleSheet.create({
         justifyContent: 'flex-end'
     },
     title: {
-        fontFamily: commonStyles.fontFamily,
+        fontFamily: commonStyle.fontFamily,
         fontSize: 50,
-        color: commonStyles.colors.secundary,
+        color: commonStyle.colors.secundary,
         marginLeft: 20,
         marginBottom: 20,
     },
     subTitle: {
-        fontFamily: commonStyles.fontFamily,
+        fontFamily: commonStyle.fontFamily,
         fontSize: 20,
-        color: commonStyles.colors.secundary,
+        color: commonStyle.colors.secundary,
         marginLeft: 20,
         marginBottom: 20,
     },
@@ -165,7 +165,7 @@ const style = StyleSheet.create({
         width: 50,
         height: 50,
         borderRadius: 25,
-        backgroundColor: commonStyles.colors.today,
+        backgroundColor: commonStyle.colors.today,
         justifyContent: 'center',
         alignItems: 'center',
     }

@@ -1,9 +1,10 @@
 import React from "react";
 import { StyleSheet, Text, TouchableWithoutFeedback, View } from "react-native";
+import { GestureHandlerRootView,Swipeable } from "react-native-gesture-handler"; 
 
-import todayImage from '../../assets/imgs/today.jpg'
-import moment from 'moment'
-import 'moment/locale/pt-br';
+import moment from 'moment';
+import 'moment/locale/pt-br'
+
 import commonStyles from "../commonStyle";
 import Icon from 'react-native-vector-icons/FontAwesome';
  
@@ -17,16 +18,30 @@ export default props => {
     const dataFormat = moment(date).locale('pt-br').format('ddd, D [de] MMMM')
  
     return (
-        <View style={style.container}>
+        <GestureHandlerRootView>
+            <Swipeable
+                 renderRightActions={getRightContent}
+                 renderLeftActions={getLeftContent}
+                 onSwipeableLeftOpen={() => props.onDelete && props.onDelete(props.id)}
+            >
 
-            <View style={style.checkContainer}>
+            
+        <View style={style.container}>
+            <TouchableWithoutFeedback
+                    onPress={() => props.toggleTask(props.id)}
+            >
+                <View style={style.checkContainer}>
                 {getCheckView(props.concluidaEm)}
-            </View>
+                </View>
+
+            </TouchableWithoutFeedback>
             <View>
                 <Text style={[style.descricao,tarefaConcuidaNao]}>{props.descricao}</Text>
                 <Text style={style.date}>{dataFormat}</Text>
             </View>
         </View>
+        </Swipeable>
+        </GestureHandlerRootView>
     )
 }
  
@@ -34,7 +49,7 @@ function getCheckView(concluidaEm) {
     if (concluidaEm != null) {
         return (
             <View style={style.dataEstimada}>
-                <Icon name='check' size={20} color='#fff'/>
+                <Icon name='check' size={20} color='#FFF'/>
             </View>
         )
     } else {
@@ -74,7 +89,7 @@ const style = StyleSheet.create({
         fontSize:15,
         color:commonStyles.colors.mainText,
     },
-    data:{
+    date:{
         fontFamily:commonStyles.fontFamily,
         color:commonStyles.colors.subText,
         fontSize:12,

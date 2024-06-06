@@ -1,18 +1,12 @@
 import React, {Component} from "react";
-import { Modal,
-    View,
-    StyleSheet,
-    TouchableWithoutFeedback,
-    Text,
-    TextInput,
-    Platform,
-    TouchableOpacity} from "react-native";
- 
-import DateTimePicker from 'react-native-community/datatimepicker'
-import commonStyle from "./commonStyle";
+import { Modal,View,StyleSheet,TouchableWithoutFeedback,Text,TextInput,Platform,TouchableOpacity} from "react-native";
+import DateTimePicker from '@react-native-community/datetimepicker'
+
+import commonStyle from "../commonStyle";
+
 import moment from "moment";
  
-const initialState = { desc:'', date:new Date(), showDatePicker:false}
+const initialState = { desc:'', date: new Date(), showDatePicker:false}
  
 export default class AddTask extends Component{
  
@@ -101,7 +95,7 @@ const style = StyleSheet.create(
     {
         background:{
             flex:1,
-            backgroundColor:"rgba(0,0,0,0.7)"
+            backgroundColor:'rgba(0,0,0,0.7)'
         },
         container:{
             backgroundColor:'#FFF'
