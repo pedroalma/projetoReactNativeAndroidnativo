@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, TouchableWithoutFeedback, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, TouchableWithoutFeedback, View } from "react-native";
 import { GestureHandlerRootView,Swipeable } from "react-native-gesture-handler"; 
 
 import moment from 'moment';
@@ -17,6 +17,23 @@ export default props => {
 
     const dataFormat = moment(date).locale('pt-br').format('ddd, D [de] MMMM')
  
+    const getRightContent = ()=>{
+        return(
+            <TouchableOpacity
+                onPress={()=> props.onDelete && props.onDelete(props.id)}            
+            >
+                <Icon name="trash" size={20} color="#FFF"/>
+            </TouchableOpacity>
+        )
+    }
+    const getLeftContent = () =>{
+        return(
+            <View>
+                <Icon name='trash' size={20} color="#FFF"/>
+                <Text>Excluir</Text>
+            </View>
+        )
+    }
     return (
         <GestureHandlerRootView>
             <Swipeable
@@ -68,6 +85,7 @@ const style = StyleSheet.create({
         borderBottomWidth: 1,
         alignItems: 'center',
         paddingVertical: 10,
+        backgroundColor:'#FFF'
     },
     pendente:{
         height:25,
@@ -93,6 +111,28 @@ const style = StyleSheet.create({
         fontFamily:commonStyles.fontFamily,
         color:commonStyles.colors.subText,
         fontSize:12,
+    },
+    right:{
+        paddingHorizontal:20,
+        backgroundColor:'red',
+        justifyContent:'flex-end',
+        flexDirection:'row',
+        alignItems:'center',
+    },
+    left:{
+        flex:1,
+        backgroundColor:'red',
+        flexDirection:'row',
+        alignItems:'center',
+    },
+    delText:{
+        fontFamily:commonStyles.fontFamily,
+        color:'#FFF',
+        fontSize:20,
+        margin:10,
+    },
+    delIcon:{
+        marginLeft:10,
     },
     checkContainer:{
         width:'20%',
